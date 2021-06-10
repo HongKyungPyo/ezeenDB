@@ -25,7 +25,7 @@ public class EmployeeRepository {
 	}
 	public List<EmployeeDTO> empAllList()
 	{
-		statement= namespace+"empAllList";
+		statement= namespace+".empAllList";
 		return sqlsession.selectList(statement);
 	}
 }
