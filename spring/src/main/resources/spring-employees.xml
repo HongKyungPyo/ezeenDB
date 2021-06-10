@@ -8,5 +8,5 @@
 	<bean id="employeeService" class="service.employees.EmployeeService"/>
 	<bean id= "employeeRepository" class="repository.EmployeeRepository"/>
 	<bean id="employeeNoService" class="service.employees.EmployeeNoService"/>
-	
+	<bean id="employeeListService" class="service.employees.EmployeeListService"/>
 </beans>

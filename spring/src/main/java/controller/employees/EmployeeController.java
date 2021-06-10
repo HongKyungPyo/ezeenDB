@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.EmployeeCommand;
+import service.employees.EmployeeListService;
 import service.employees.EmployeeNoService;
 import service.employees.EmployeeService;
 
@@ -15,9 +16,10 @@ import service.employees.EmployeeService;
 public class EmployeeController {
 	@Autowired EmployeeService employeeservice;
 	@Autowired EmployeeNoService employeeNoService;
+	@Autowired EmployeeListService employeeListService;
 	@RequestMapping("emplist")
-	public String emplist()
-	{
+	public String emplist(Model model)
+	{	employeeListService.empList(model);
 		return"employee/emplist";
 	}
 	@RequestMapping("empreget")

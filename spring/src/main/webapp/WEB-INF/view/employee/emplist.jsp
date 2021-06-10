@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,14 @@
 </head>
 <body>
 직원리스트 페이지입니다.<br/>
+<table>
+	<tr><td>사원번호</td><td>이름</td><td>부서명</td>
+	<td>이메일</td><td>전화번호</td>
+	<c:forEach items="${empList }" var="dto">
+	<tr><td>${dto.empNo }</td><td>${dto.empName }</td><td>${dto.empDeptNumber }</td>
+	<td>${dto.empEmail }</td><td>${dto.empPhoneNumber }</td>
+	</c:forEach>
+</table>
 <a href="empreget">직원등록</a>
 </body>
 </html>
