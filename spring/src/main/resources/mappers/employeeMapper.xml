@@ -3,7 +3,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="mappers.employeeMapper">
   <insert id="employeeInsert" parameterType="model.EmployeeDTO">
-  
+  	insert into employees(EMP_NO,EMP_ID,EMP_PW,EMP_NAME,EMP_DEPT_NUMBER,
+  							EMP_EMAIL,EMP_PHONE_NUMBER,HIRE_DATE,SALARY)
+  	values(#{empNo},#{empId},#{empPw},#{empName},#{empDeptNumber},#{empEmail},#{empPhoneNumber},#{hireDate},#{salary})
   </insert>
   
   
