@@ -7,7 +7,9 @@
   							EMP_EMAIL,EMP_PHONE_NUMBER,HIRE_DATE,SALARY)
   	values(#{empNo},#{empId},#{empPw},#{empName},#{empDeptNumber},#{empEmail},#{empPhoneNumber},#{hireDate},#{salary})
   </insert>
-  
+  <select id="empNo" resultType="int">
+  	select nvl(max(emp_no),10000)+1 from employees
+  </select>
   
   
   

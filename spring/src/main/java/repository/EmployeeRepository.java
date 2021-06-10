@@ -15,5 +15,10 @@ public class EmployeeRepository {
 		statement= namespace + ".employeeInsert";
 		sqlsession.insert(statement, dto);
 	}
-	
+	public int getEmpNo()
+	{
+		statement= namespace + ".empNo";
+		return sqlsession.selectOne(statement);
+
+	}
 }
