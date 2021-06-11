@@ -12,10 +12,31 @@ public class EmployeeRepository {
 	SqlSession sqlsession;
 	private final String namespace="mappers.employeeMapper";
 	private String statement;
+	
+	public void empdelete(String empNo)
+	{
+		statement= namespace + ".employeeDelete";
+		sqlsession.delete(statement, empNo);
+		
+	}
+	
+	public void empUpdate(EmployeeDTO dto)
+	{
+		statement= namespace + ".employeeUpdate";
+		sqlsession.update(statement, dto);
+	}
+	
+	
+	
 	public void insertEmployee(EmployeeDTO dto)
 	{
 		statement= namespace + ".employeeInsert";
 		sqlsession.insert(statement, dto);
+	}
+	public EmployeeDTO empInfo(String empNo)
+	{
+		statement= namespace + ".employeeInfo";
+		return sqlsession.selectOne(statement, empNo);
 	}
 	public int getEmpNo()
 	{

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body><form action="empjoin" method="post" name="frm">
-<table border="1" width="600" align="center">
+<table border="1" width="500" align="center">
 	<tr><td width="130">직원번호</td>
 		<td width="370">
 			<input type="text" name="empNo" value="$(empNo)">

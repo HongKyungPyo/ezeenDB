@@ -14,7 +14,7 @@
 	<tr><td>사원번호</td><td>이름</td><td>부서명</td>
 	<td>이메일</td><td>전화번호</td>
 	<c:forEach items="${empList }" var="dto">
-	<tr><td>${dto.empNo }</td><td>${dto.empName }</td><td>${dto.empDeptNumber }</td>
+	<tr><td> <a href="empInfo?empNo=${dto.empNo }">${dto.empNo }</td><td>${dto.empName }</td><td>${dto.empDeptNumber }</td>
 	<td>${dto.empEmail }</td><td>${dto.empPhoneNumber }</td>
 	</c:forEach>
 </table>

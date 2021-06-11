@@ -7,14 +7,34 @@
   							EMP_EMAIL,EMP_PHONE_NUMBER,HIRE_DATE,SALARY
   </sql>
   
+  <delete id="employeeDelete" parameterType="String">
+  	delete from employees
+  	where emp_no=#{empNo}
+  </delete>
+  
+  <update id="employeeUpdate" parameterType="emp">
+  	update employees
+  	set emp_dept_number=#{empDeptNumber},emp_email=#{empEmail},emp_phone_number=#{empPhoneNumber},
+  		hire_date=#{hireDate},salary=#{salary}
+  	where emp_no=#{empNo}
+  </update>
   
   <insert id="employeeInsert" parameterType="model.EmployeeDTO">
   	insert into employees(<include refid="basecolumn"></include>)
   	values(#{empNo},#{empId},#{empPw},#{empName},#{empDeptNumber},#{empEmail},#{empPhoneNumber},#{hireDate},#{salary})
   </insert>
+  
+  <select id="empInfo" parameterType="string" resultType="emp">
+  	select EMP_NO,EMP_ID,EMP_PW,EMP_NAME,EMP_DEPT_NUMBER,
+  							EMP_EMAIL,EMP_PHONE_NUMBER,HIRE_DATE,SALARY						
+  	from employees
+  	where emp_no = #{empNo}						
+   </select>
+  
   <select id="empNo" resultType="int">
   	select nvl(max(emp_no),10000)+1 from employees
   </select>
+  
   <select id="empAllList">
   	select EMP_NO empNo,EMP_ID empId,EMP_PW empPw,EMP_NAME empName,
   	EMP_DEPT_NUMBER empDeptNumber,EMP_EMAIL empEmail,EMP_PHONE_NUMBER empPhoneNumber,HIRE_DATE hireDate,SALARY
