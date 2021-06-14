@@ -24,10 +24,11 @@
 	<input type="password" name="loginPw"/>
 </td><td colspan="3">
 	아이디/비밀번호 찾기
-	<a href ="#">회원가입</a>
+	<a href ="member/agree">회원가입</a>
 </td></tr>
 </table>
 
 <a href= "emp/emplist">직원정보 리스트</a>
+<a href= "member/memberList">회원정보 리스트</a>
 </body>
 </html>
