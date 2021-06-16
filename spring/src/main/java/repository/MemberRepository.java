@@ -35,4 +35,9 @@ public class MemberRepository {
 		statement = namespace + ".memberInsert";
 		sqlSession.insert(statement, dto);
 	}
+	public void pwChange(MemberDTO dto)
+	{
+		statement = namespace + ".pwChange";
+		sqlSession.update(statement, dto);
+	}
 }	

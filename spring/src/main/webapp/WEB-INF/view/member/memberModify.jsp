@@ -88,6 +88,8 @@
 			<input type="submit" value="회원수정"/>
 			<input type="button" value="수정안함"
 			   onclick="javascript:history.back()"/>
+			   <input type="button" value="강퇴" 
+			   oneclick="javascript:location.href='memDelete'"/>
 		</td></tr>
 		
 		

@@ -10,6 +10,12 @@
 			#{membEmail},#{membBirth},#{membGender},sysdate,#{membConfirm},
 			#{postNumber},#{detailAddr})
 </insert>
+<update id="pwChange" parameterType="model.MemberDTO">
+	update member
+	set memb_pw = #{membPw}
+	where memb_id=#{membId}
+</update>
+
 
 <update id="memberUpdate" parameterType="model.MemberDTO">
 	update member
