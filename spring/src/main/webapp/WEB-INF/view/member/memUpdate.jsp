@@ -62,7 +62,12 @@
 
 	<table border="1" align="center">
 		<tr><td>아이디</td><td>
-			${ dto.membId}</tr>		
+			${ dto.membId}</tr>	
+		<tr><td>비밀번호</td><td>
+			<input type="password" name="membPw">
+			<span>${pwFail1 }</span>
+			
+			</tr>		
 		<tr><td>이름</td><td>
 			${ dto.membName}</tr>
 		<tr><td>우편번호</td><td>
@@ -88,6 +93,8 @@
 			<input type="submit" value="회원수정"/>
 			<input type="button" value="수정안함"
 			   onclick="javascript:history.back()"/>
+			   <input type="button" value="강퇴" 
+			   oneclick="javascript:location.href='memDelete'"/>
 		</td></tr>
 		
 		

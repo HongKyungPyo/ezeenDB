@@ -15,6 +15,7 @@ import service.member.MemberInfoService;
 import service.member.MemberJoinService;
 import service.member.MemberListService;
 import service.member.MemberModifyService;
+import service.member.MemberUpdateService;
 @Controller
 @RequestMapping("member")
 public class MemberController {
@@ -23,6 +24,7 @@ public class MemberController {
 	@Autowired MemberInfoService memberInfoService;
 	@Autowired MemberModifyService memberModifyService;
 	@Autowired MemberDetailService memberDetailService;
+	@Autowired MemberUpdateService memberUpdateService;
 	@RequestMapping("agree") //1주소를 넘겨서
 	public String agree()
 	{
@@ -78,4 +80,12 @@ public class MemberController {
 		return"member/memUpdate";
 
 	}
+	@RequestMapping("memUpdateOk")
+	public String UpdateOk(MemberCommand memberCommand, HttpSession session)
+	{	int i =memberUpdateService.memUpdate(memberCommand,session);
+		if(i==1)//memberUpdateService에서 비번이 같으면 1
+		return "redirect:myInfo";
+		else return "redirect:memUpdate";
+	}
+	
 }
