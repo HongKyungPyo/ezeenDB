@@ -9,4 +9,8 @@
        <bean id="memberJoinService" class="service.member.MemberJoinService" />  
        <bean id="memberRepository"  class="repository.MemberRepository"/>
        <bean id="memberListService" class="service.member.MemberListService"/>
+       <bean id="memberInfoService" class="service.member.MemberInfoService"/>
+       <bean id="memberModifyService" class="service.member.MemberModifyService"/>
+       <bean id="memberDetailService" class="service.member.MemberDetailService"/>
+       
 </beans>           
