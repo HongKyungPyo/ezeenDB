@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.employeeMapper">
+
+<insert id="prodInsert" parameterType="model.ProductDTO">
+	insert into product(PROD_NO,CAT_NUM,PROD_NAME,PROD_PRICE,
+						PROD_INFO,PROD_IMAGE,EMP_NO)
+	values(#{prodNo},#{catNum},#{prodName},#{prodPrice},
+			#{prodInfo},#{prodImage},#{empNo})
+	
+</insert>
+
+
+ <select id="autoNum" resultType="string">
+	SELECT goods_num.nextval from dual
+ </select>            
+             
+  <select id="catList" resultType="model.CatDTO">
+  	SELECT CAT_NUM catNum,CAT_TYPE catType,CAT_NAME catName FROM  category
+  </select>           
+             
+             
+             
+             
+             
+             
+</mapper>
