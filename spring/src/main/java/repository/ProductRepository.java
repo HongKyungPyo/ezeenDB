@@ -12,6 +12,26 @@ public class ProductRepository {
 	@Autowired SqlSession sqlsession;
 	private final String namespace="mappers.productMapper";
 	private String statement;
+	public void prodDel(String prodNo)
+	{
+		statement=namespace + ".prodDelete";
+		sqlsession.delete(statement,prodNo);
+	}
+	public void prodUpdate(ProductDTO dto)
+	{
+		statement=namespace + ".prodUpdate";
+		sqlsession.insert(statement,dto);
+	}
+	public ProductDTO prodInfo(String prodNo)
+	{
+		statement=namespace + ".prodInfo";
+		return sqlsession.selectOne(statement,prodNo);
+	}
+	public List<ProductDTO> prodList()
+	{
+		statement=namespace + ".prodList";
+		return sqlsession.selectList(statement);
+	}
 	public void prodInsert(ProductDTO dto)
 	{
 		statement=namespace + ".prodInsert";

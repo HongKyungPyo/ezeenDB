@@ -12,6 +12,33 @@
 </insert>
 
 
+<update id="prodUpdate">
+	update product 
+	set PROD_NAME=${prodName}, PROD_PRICE=${prodPrice},
+		PROD_INFO=${prodInfo}
+	where PROD_NO=${prodNo}
+</update>
+
+
+<delete id="prodDelete" parameterType="string">
+	delete from product
+	where prod_no=#{prodNo}
+</delete>
+
+<select id="prodInfo" parameterType="String" resultType="model.ProductDTO">
+	select PROD_NO prodNo, CAT_NUM catNum, PROD_NAME prodName, PROD_PRICE prodPrice,
+			PROD_INFO prodInfo, PROD_IMAGE prodImage, EMP_NO empNo
+	from product
+	where prod_no=#{prodNo}		
+</select>
+
+
+<select id="prodList" resultType="model.ProductDTO">
+	select PROD_NO prodNo, CAT_NUM catNum, PROD_NAME prodName, PROD_PRICE prodPrice,
+			PROD_INFO prodInfo, PROD_IMAGE prodImage, EMP_NO empNo
+	from product;		
+</select>
+
  <select id="autoNum" resultType="string">
 	SELECT goods_num.nextval from dual
  </select>            
