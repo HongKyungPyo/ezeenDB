@@ -5,13 +5,30 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import model.CartDTO;
 import model.CatDTO;
+import model.ProductCartDTO;
 import model.ProductDTO;
 
 public class ProductRepository {
 	@Autowired SqlSession sqlsession;
 	private final String namespace="mappers.productMapper";
 	private String statement;
+	public ProductCartDTO cartList(CartDTO dto)
+	{
+		statement=namespace + ".cartList";
+		return sqlsession.selectOne(statement,dto);
+	}
+	public List<String> memCart(String membId)
+	{
+		statement=namespace + ".memCart";
+		return sqlsession.selectList(statement,membId);
+	}
+	public void cartAdd(CartDTO dto)
+	{
+		statement=namespace + ".prodInsert";
+		sqlsession.insert(statement,dto);
+	}
 	public void prodDel(String prodNo)
 	{
 		statement=namespace + ".prodDelete";
