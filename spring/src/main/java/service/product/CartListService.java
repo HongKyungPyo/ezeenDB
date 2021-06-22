@@ -18,15 +18,17 @@ public class CartListService {
 	public void cartList(HttpSession session,Model model)
 	{	AuthInfo authInfo=(AuthInfo)session.getAttribute("authInfo");
 		String membId=authInfo.getUserId();
+		//현접속자의 prod_no만 받아옴
 		List<String> list=productRepository.memCart(membId);
 		List<ProductCartDTO> dtos=new ArrayList<ProductCartDTO>();
 		for(String prodNo : list)
 		{	CartDTO dto=new CartDTO();
 			dto.setProdNo(prodNo);
 			dto.setMembId(membId);
+			//현접속자의 상품번호 하나에 해당되는 데이터를 하나씩 받아서 list로 저장
 			ProductCartDTO productCartDTO=productRepository.cartList(dto);
 			dtos.add(productCartDTO);
 		}
-		
+		model.addAttribute("list", dtos);
 	}
 }
